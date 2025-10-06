@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matias Laborde — Portfolio</title>
+  <meta name="description" content="UI/UX designer crafting elevated, editorial‑grade product & game interfaces. Selected works and case studies." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --ink:#0f0f10; --paper:#ffffff; --muted:#8a8a8f; --rule:#e7e7ea; }
+    .font-display{ font-family:"Fraunces",ui-serif,Georgia,serif; font-variation-settings:"opsz" 72; }
+    .font-sans{ font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+    .smallcaps{ font-variant-caps:all-small-caps; letter-spacing:.06em; }
+    .hairline{ height:1px; background:var(--rule); }
+    .lead-italic{ font-style:italic; }
+    @media (prefers-reduced-motion: no-preference){
+      [data-reveal]{ opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease; }
+      [data-reveal].in{ opacity:1; transform:none; }
+      .hover-underline{ background-image:linear-gradient(currentColor,currentColor); background-size:0% 1px; background-position:0 100%; background-repeat:no-repeat; transition:background-size .25s ease; }
+      .hover-underline:hover{ background-size:100% 1px; }
+    }
+    .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.6rem 1.4rem; border-radius:0; font-weight:600; }
+    .btn-black{ color:#fff; background:#000; border:1px solid #000; }
+    .card{ border:1px solid var(--rule); border-radius:16px; overflow:hidden; background:var(--paper); transition:transform .2s ease, box-shadow .2s ease; }
+    .card:hover{ transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,.06); }
+    .figure img{ display:block; width:100%; height:100%; object-fit:cover; }
+    .figure figcaption{ color:var(--muted); font-size:.82rem; line-height:1.3; padding:.75rem 1rem; border-top:1px solid var(--rule); }
+    .tone img{ filter:saturate(.85) contrast(1.02); }
+    .tone.hover\:color:hover img{ filter:none; }
+    .bleed{ width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; }
+  </style>
+</head>
+<body class="font-sans text-[color:var(--ink)] bg-[color:var(--paper)]">
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b" style="border-color:var(--rule)">
+    <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+      <a class="font-display text-xl tracking-tight hover-underline" href="/">Matias&nbsp;Laborde</a>
+      <nav class="flex items-center gap-6 text-sm">
+        <a class="hover-underline" href="#work">Work</a>
+        <a class="hover-underline" href="/art/">Art Direction</a>
+        <a class="hover-underline" href="#about">About</a>
+        <a class="hover-underline" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" class="mx-auto max-w-7xl px-6 py-24 md:py-32">
+    <p class="smallcaps text-xs text-[color:var(--muted)]" data-reveal>Portfolio · UI/UX · Systems</p>
+    <h1 class="font-display text-5xl md:text-7xl leading-[1.05] tracking-tight mt-4" data-reveal>
+      Interfaces with taste. <span class="italic">Systems that serve people.</span>
+    </h1>
+    <p class="lead-italic text-xl md:text-2xl text-zinc-700 mt-4 max-w-3xl" data-reveal>
+      Insight‑driven. Led by purpose. Crafted to be timeless.
+    </p>
+    <div class="mt-10 flex gap-4" data-reveal>
+      <a href="#work" class="btn btn-black">View selected work →</a>
+      <a href="#contact" class="btn btn-black">Contact</a>
+    </div>
+    <!-- Full‑bleed hero image under CTAs -->
+    <figure class="bleed mt-14" data-reveal>
+      <img src="/hero.jpg" alt="Hero showcase image" class="w-full h-[42vh] md:h-[64vh] object-cover" loading="eager"/>
+    </figure>
+  </section>
+
+  <div class="hairline"></div>
+
+  <section id="work" class="mx-auto max-w-7xl px-6 py-24 md:py-28">
+    <div class="flex items-end justify-between mb-12">
+      <h2 class="font-display text-3xl md:text-4xl">Selected Work</h2>
+      <a class="text-sm hover-underline" href="#">All projects (soon)</a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12">
+      <!-- Stellaris -->
+      <figure class="card figure tone hover:color" data-reveal>
+        <a href="/stellaris/" class="block aspect-[16/10]"><img src="/stellaris/cover.jpg" alt="Stellaris UI montage" loading="lazy" /></a>
+        <figcaption>
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-display text-lg">Stellaris — Lead UI/UX on Expansions</div>
+              <div class="text-sm">Legacy engine · Systems UI</div>
+            </div>
+            <a class="text-sm hover-underline" href="/stellaris/">Case →</a>
+          </div>
+        </figcaption>
+      </figure>
+      <!-- QuizDuel -->
+      <figure class="card figure tone hover:color" data-reveal>
+        <a href="/quizduel/" class="block aspect-[16/10]"><img src="/quizduel/cover.jpg" alt="QuizDuel UI" loading="lazy" /></a>
+        <figcaption>
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-display text-lg">QuizDuel — Full UI/UX Rework</div>
+              <div class="text-sm">Mobile UI · Design System</div>
+            </div>
+            <a class="text-sm hover-underline" href="/quizduel/">Case →</a>
+          </div>
+        </figcaption>
+      </figure>
+      <!-- Third / placeholder -->
+      <figure class="card figure tone hover:color" data-reveal>
+        <a href="/project-x/" class="block aspect-[16/10]"><img src="/project-x/cover.jpg" alt="Project X" loading="lazy" /></a>
+        <figcaption>
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-display text-lg">Additional Case — Coming Soon</div>
+              <div class="text-sm">Placeholder slot for future project</div>
+            </div>
+            <a class="text-sm hover-underline" href="/project-x/">Case →</a>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="hairline"></div>
+
+  <section class="mx-auto max-w-7xl px-6 py-24 grid md:grid-cols-2 gap-12">
+    <div id="stellaris" class="card p-6" data-reveal>
+      <div class="smallcaps text-xs text-[color:var(--muted)]">Case highlights</div>
+      <h3 class="font-display text-2xl mt-2">Stellaris</h3>
+      <ul class="mt-3 space-y-2 text-[15px]">
+        <li>• Creative UI within strict legacy engine limits.</li>
+        <li>• Maintained clarity/performance for complex systems.</li>
+        <li>• Balanced community expectations with production realities.</li>
+      </ul>
+      <a href="/stellaris/" class="btn btn-black mt-4">Open case →</a>
+    </div>
+    <div id="quizduel" class="card p-6" data-reveal>
+      <div class="smallcaps text-xs text-[color:var(--muted)]">Case highlights</div>
+      <h3 class="font-display text-2xl mt-2">QuizDuel</h3>
+      <ul class="mt-3 space-y-2 text-[15px]">
+        <li>• End‑to‑end UI/UX rework and art refresh.</li>
+        <li>• Readability & speed on small screens.</li>
+        <li>• Maintainable component library & DS.</li>
+      </ul>
+      <a href="/quizduel/" class="btn btn-black mt-4">Open case →</a>
+    </div>
+  </section>
+
+  <div class="hairline"></div>
+
+  <section id="about" class="mx-auto max-w-7xl px-6 py-28 md:py-32 grid md:grid-cols-12 gap-14 items-center">
+    <div class="md:col-span-7" data-reveal>
+      <h2 class="font-display text-3xl">About</h2>
+      <p class="mt-4 text-zinc-700">UX/UI designer with visual roots. 12+ years across games & digital products; 6+ focused on UX. I move between systems thinking and refined UI, delivering clear, production‑ready work.</p>
+      <p class="mt-3 text-zinc-700">Previously: Paradox Interactive (Stellaris), MAG Interactive (QuizDuel). Based in Sweden · open to Australia.</p>
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div><div class="font-display text-2xl">10+</div><div class="uppercase tracking-wide text-[11px] text-zinc-600">Years experience</div></div>
+        <div><div class="font-display text-2xl">6+</div><div class="uppercase tracking-wide text-[11px] text-zinc-600">As UX designer</div></div>
+        <div><div class="font-display text-2xl">4M+</div><div class="uppercase tracking-wide text-[11px] text-zinc-600">MAU touched</div></div>
+        <div><div class="font-display text-2xl">15+</div><div class="uppercase tracking-wide text-[11px] text-zinc-600">Design tools</div></div>
+      </div>
+      <div class="mt-8 flex gap-4"><a href="#work" class="btn btn-black">See selected work</a><a href="#contact" class="btn btn-black">Download résumé</a></div>
+    </div>
+    <div class="md:col-span-5" data-reveal>
+      <figure class="card figure">
+        <img class="w-full h-80 object-cover" src="/about-portrait.jpg" alt="Portrait or montage"/>
+        <figcaption>Portrait / montage image.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="hairline"></div>
+
+  <section id="contact" class="mx-auto max-w-7xl px-6 py-28 md:py-32 grid md:grid-cols-12 gap-14 items-center">
+    <div class="md:col-span-7" data-reveal>
+      <h2 class="font-display text-3xl">Let’s talk</h2>
+      <p class="mt-3 text-zinc-700">Open to senior UI/UX roles, game UI, and product design consulting.</p>
+      <div class="mt-6 flex gap-3">
+        <a href="mailto:hello@example.com" class="btn btn-black">Email me</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" class="btn btn-black">LinkedIn</a>
+      </div>
+    </div>
+    <div class="md:col-span-5" data-reveal>
+      <div class="card p-6"><div class="smallcaps text-xs text-[color:var(--muted)]">Availability</div><p class="mt-2 text-sm">Based in Stockholm · Available for portfolio walkthroughs</p></div>
+    </div>
+  </section>
+
+  <footer class="border-t" style="border-color:var(--rule)"><div class="mx-auto max-w-7xl px-6 py-10 text-sm text-zinc-600 flex items-center justify-between"><p>© <span id="y"></span> Matias Laborde</p><a class="hover-underline" href="#top">Back to top</a></div></footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion){
+      const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); }); },{threshold:.12});
+      document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+    }
+  </script>
+</body>
+</html>
+
+<!-- FILE: stellaris/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Stellaris — Case Study · Matias Laborde</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> :root{--rule:#e7e7ea} .font-display{font-family:Fraunces,ui-serif,Georgia,serif; font-variation-settings:"opsz" 72} .hover-underline{background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .25s} .hover-underline:hover{background-size:100% 1px} .btn{display:inline-flex;align-items:center;padding:.6rem 1.4rem;border:1px solid #000;background:#000;color:#fff;border-radius:0;font-weight:600} .bleed{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw} .figure img{width:100%;height:100%;object-fit:cover;display:block} .card{border:1px solid var(--rule);border-radius:16px;overflow:hidden} </style>
+</head>
+<body class="font-sans">
+  <header class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center border-b" style="border-color:var(--rule)">
+    <a class="hover-underline" href="/">← Back</a>
+    <a class="hover-underline" href="/art/">Art Direction</a>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <h1 class="font-display text-4xl md:text-6xl leading-tight">Stellaris — Lead UI/UX on Expansions</h1>
+    <p class="mt-4 text-zinc-700 max-w-3xl">Legacy engine, engaged user base, profitability maintained through creative systems UI within technical constraints.</p>
+
+    <figure class="bleed mt-10"><img src="/stellaris/cover.jpg" alt="Stellaris cover" class="w-full h-[48vh] md:h-[66vh] object-cover"/></figure>
+
+    <section class="mt-12 grid md:grid-cols-12 gap-10">
+      <aside class="md:col-span-4 space-y-4 text-sm">
+        <div><div class="uppercase tracking-wide text-[11px] text-zinc-600">Role</div><p>Lead UI/UX</p></div>
+        <div><div class="uppercase tracking-wide text-[11px] text-zinc-600">Scope</div><p>Systems UI, feature expansions</p></div>
+        <div><div class="uppercase tracking-wide text-[11px] text-zinc-600">Constraints</div><p>Legacy engine, performance, clarity</p></div>
+        <div><div class="uppercase tracking-wide text-[11px] text-zinc-600">Outcome</div><p>Maintained engagement & profitability</p></div>
+        <a href="/" class="btn">Contact</a>
+      </aside>
+      <div class="md:col-span-8 space-y-6">
+        <p>Highlights: Navigated engine limits, partnered closely with engineering to ship performant UI for complex systems, and balanced community expectations with production realities.</p>
+        <div class="grid grid-cols-2 gap-3">
+          <img src="/stellaris/shot-1.jpg" alt="UI 1" class="rounded-md object-cover w-full h-56"/>
+          <img src="/stellaris/shot-2.jpg" alt="UI 2" class="rounded-md object-cover w-full h-56"/>
+          <img src="/stellaris/shot-3.jpg" alt="UI 3" class="rounded-md object-cover w-full h-56"/>
+          <img src="/stellaris/shot-4.jpg" alt="UI 4" class="rounded-md object-cover w-full h-56"/>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
