@@ -55,11 +55,26 @@
     .carousel::-webkit-scrollbar{ display:none; }
     .carousel-item{ flex:0 0 80%; scroll-snap-align:center; }
     @media (min-width:768px){ .carousel-item{ flex-basis:40%; } }
+
+.site-header{
+  transition: background-color .2s ease, box-shadow .2s ease, border-color .2s ease, backdrop-filter .2s ease;
+}
+.site-header.scrolled{
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,.04);
+}
+.site-header .header-wrap{
+  transition: padding .2s ease;
+}
+.site-header.scrolled .header-wrap{
+  padding-top:.5rem;
+  padding-bottom:.5rem;
+}
   </style>
 </head>
 <body class="font-sans text-[color:var(--ink)] bg-[color:var(--paper)]">
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b" style="border-color:var(--rule)">
-    <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+  <header class="site-header sticky top-0 z-40 bg-white/80 backdrop-blur border-b" style="border-color:var(--rule)">
+   <div class="header-wrap mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
       <a class="font-display text-xl tracking-tight hover-underline" href="/">Matias&nbsp;Laborde</a>
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
@@ -94,7 +109,7 @@
     Interfaces with taste.<br><span>Systems that serve people.</span>
   </h1>
   <p class="lead-italic text-lg md:text-xl text-zinc-700 mt-4 max-w-3xl" data-intro data-intro-order="3">
-    Insight-driven. Led by purpose. Visualy inpactful.
+    Insight-driven. Led by purpose. Visually impactful.
   </p>
   <div class="mt-10 flex gap-4" data-intro data-intro-order="4">
     <a href="#work" class="btn btn-black">View selected work ↓ </a>
@@ -106,26 +121,28 @@
     <img src="/public/hero.png"
          alt="Hero showcase image"
          class="w-full h-[48vh] md:h-[70vh] object-cover"
-         loading="eager" />
+         loading="eager"
+         decoding="async"
+         fetchpriority="high" />
   </figure>
 </section>
 
   <section id="about" class="mx-auto max-w-7xl px-6 py-20 md:py-32 grid md:grid-cols-12 gap-14 items-center">
-    <div class="md:col-span-7" data-reveal>
+    <div class="md:col-span-7" data-reveal data-reveal-from="up">
       <h2 class="font-display text-3xl md:text-4xl mb-6">About</h2>
       <h1 class="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight mt-2 mb-6">
    UI/UX Designer with visual roots </h1>
       <p class="mt-0 mb-5 text-zinc-700 text-[17px] leading-relaxed max-w-3xl">With over a decade of experience designing for PC, mobile, and console games, I bring a unique blend of visual artistry and user-centered thinking to every project. I started my journey as a game artist, evolved into UI design, and found my stride in UX — always grounded in a strong visual development foundation.<br> From indie projects to large-scale titles, I’ve worn many hats: creating intuitive interfaces, leading design teams, and bridging the gap between art and functionality. My work spans beyond games too — I’ve designed for web, apps, and digital campaigns, always aiming to craft experiences that feel bold, intuitive, and human.</p>
       <p class="mt-4 mb-8 text-zinc-700 text-[17px] leading-relaxed max-w-3xl">Previously: Paradox Interactive (Stellaris), MAG Interactive (QuizDuel).<br> Based in Stockholm · Sweden.</p>
      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8">
-        <div><div class="font-display text-3xl md:text-2xl mb-1">10+ <br>YEARS OF EXPERIENCE</div><div class="uppercase tracking-wide text-[11px] text-zinc-600 leading-snug">From game art, digital design and visual development to UI/UX Design.</div></div>
-        <div><div class="font-display text-3xl md:text-2xl mb-1">6+ <br>AS UX DESIGNER</div><div class="uppercase tracking-wide text-[11px] text-zinc-600 leading-snug">Working on some of the most complex projects out there.</div></div>
-        <div><div class="font-display text-3xl md:text-2xl mb-1">4M+ <br> AS UX DESIGNER</div><div class="uppercase tracking-wide text-[11px] text-zinc-600 leading-snug">Projects like Stellaris and QuizDuel have a large user base.</div></div>
-        <div><div class="font-display text-3xl md:text-2xl mb-1">15+ <br>DESIGN TOOLS</div><div class="uppercase tracking-wide text-[11px] text-zinc-600 leading-snug">Mastered: Figma, Miro, Illustrator, After Effects, Photoshop, Unity, Visual Studio & Blend. Framer, Webflow. AI tools and Code Agents.</div></div>
+        <div data-reveal data-reveal-from="up" data-reveal-delay="0"><div class="font-display text-3xl md:text-2xl mb-1">10+ <br>YEARS OF EXPERIENCE</div><div class="uppercase tracking-wide text-[11px] text-zinc-600 leading-snug">From game art, digital design and visual development to UI/UX Design.</div></div>
+        <div data-reveal data-reveal-from="up" data-reveal-delay="60"><div class="font-display text-3xl md:text-2xl mb-1">6+ <br>AS UX DESIGNER</div><div class="uppercase tracking-wide text-[11px] text-zinc-600 leading-snug">Working on some of the most complex projects out there.</div></div>
+        <div data-reveal data-reveal-from="up" data-reveal-delay="120"><div class="font-display text-3xl md:text-2xl mb-1">4M+ <br> MAU</div><div class="uppercase tracking-wide text-[11px] text-zinc-600 leading-snug">Monthly active users across shipped titles.</div></div>
+        <div data-reveal data-reveal-from="up" data-reveal-delay="180"><div class="font-display text-3xl md:text-2xl mb-1">15+ <br>DESIGN TOOLS</div><div class="uppercase tracking-wide text-[11px] text-zinc-600 leading-snug">Mastered: Figma, Miro, Illustrator, After Effects, Photoshop, Unity, Visual Studio & Blend. Framer, Webflow. AI tools and Code Agents.</div></div>
       </div>
       <div class="mt-8 flex gap-4"><a href="#work" class="btn btn-black">See selected work</a><a href="#contact" class="btn btn-black">Download CV</a></div>
     </div>
-    <div class="md:col-span-5" data-reveal>
+    <div class="md:col-span-5" data-reveal data-reveal-from="right" data-reveal-delay="120">
       <figure class="card figure">
         <img class="w-full h-96 object-cover"
      src="/public/about.png"
@@ -146,7 +163,7 @@
 
     <div class="grid md:grid-cols-3 gap-12">
   <!-- Stellaris card -->
-  <article class="card" data-reveal>
+  <article class="card" data-reveal data-reveal-from="up" data-reveal-delay="0">
     <a href="/stellaris/" class="block">
       <img src="/public/stellaris/cover.png" alt="Stellaris UI montage" class="w-full aspect-[16/10] object-cover" loading="lazy" />
     </a>
@@ -163,7 +180,7 @@
   </article>
 
   <!-- QuizDuel card -->
-  <article class="card" data-reveal>
+  <article class="card" data-reveal data-reveal-from="up" data-reveal-delay="120">
     <a href="/quizduel/" class="block">
       <img src="/public/quizduel/cover.jpg" alt="QuizDuel UI" class="w-full aspect-[16/10] object-cover" loading="lazy" />
     </a>
@@ -180,7 +197,7 @@
   </article>
 
   <!-- Project X / placeholder card -->
-  <article class="card" data-reveal>
+  <article class="card" data-reveal data-reveal-from="up" data-reveal-delay="240">
     <a href="/project-x/" class="block">
       <img src="/public/project-x/cover.jpg" alt="Project X" class="w-full aspect-[16/10] object-cover" loading="lazy" />
     </a>
@@ -197,8 +214,6 @@
   </article>
 </div>
   </section>
-
-  <div class="hairline"></div>
 
   <div class="hairline"></div>
 
@@ -223,7 +238,7 @@
   <div class="hairline"></div>
 
   <section id="contact" class="mx-auto max-w-7xl px-6 py-20 md:py-32 grid md:grid-cols-12 gap-14 items-center">
-    <div class="md:col-span-7" data-reveal>
+    <div class="md:col-span-7" data-reveal data-reveal-from="left">
       <h2 class="font-display text-3xl">Let’s talk</h2>
       <p class="mt-3 text-zinc-700">Open to senior UI/UX roles, game UI, and product design consulting.</p>
       <div class="mt-6 flex gap-3">
@@ -231,7 +246,7 @@
         <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" class="btn btn-black">LinkedIn</a>
       </div>
     </div>
-    <div class="md:col-span-5" data-reveal>
+    <div class="md:col-span-5" data-reveal data-reveal-from="right" data-reveal-delay="120">
       <div class="card p-6"><div class="smallcaps text-xs text-[color:var(--muted)]">Availability</div><p class="mt-2 text-sm">Based in Stockholm · Available for portfolio walkthroughs</p></div>
     </div>
   </section>
@@ -266,6 +281,25 @@
         window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') shut(); });
       }
     })();
+
+    // Header shrink-on-scroll
+(function(){
+  const header = document.querySelector('.site-header');
+  if(!header) return;
+  const THRESHOLD = 60;
+  let ticking = false;
+  function onScroll(){
+    if(!ticking){
+      requestAnimationFrame(()=>{
+        header.classList.toggle('scrolled', window.scrollY > THRESHOLD);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  onScroll(); // run once on load
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
   </script>
   <script src="/public/scripts/animations.js"></script>
 </body>
