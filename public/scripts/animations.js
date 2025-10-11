@@ -43,7 +43,7 @@
     }
   }
 
-  function animateIn(el, { delay = 0, duration = 500, easing = 'cubic-bezier(0.22, 1, 0.36, 1)' } = {}) {
+  function animateIn(el, { delay = 0, duration = 800, easing = 'cubic-bezier(0.19, 1, 0.22, 1)' } = {}) {
     // Use rAF to avoid layout thrash on first frame
     requestAnimationFrame(() => {
       el.style.transition = `opacity ${duration}ms ${easing} ${delay}ms, transform ${duration}ms ${easing} ${delay}ms`;
@@ -59,7 +59,7 @@
       el.style.transition = '';
       el.style.transform = '';
       el.style.opacity = '';
-    }, 800); // slightly longer than typical duration + delay
+    }, 1100); // slightly longer than the extended duration + delay
   }
 
   // ---- Reduced motion fallback --------------------------------------------
@@ -91,8 +91,8 @@
       return ao - bo;
     });
 
-    const baseDuration = 520;
-    const baseStagger = 100;
+    const baseDuration = 900;
+    const baseStagger = 220;
 
     nodes.forEach((el, i) => {
       const from = el.getAttribute('data-intro-from') || 'up';
@@ -135,7 +135,7 @@
         const onceAttr = el.getAttribute('data-reveal-once');
         const once = onceAttr === null ? true : onceAttr === 'true';
 
-        animateIn(el, { delay });
+        animateIn(el, { delay, duration: 800 });
         clearTransition(el);
 
         if (once) observer.unobserve(el);
