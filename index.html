@@ -59,11 +59,8 @@
 .site-header{
   position: sticky;
   top: 0;
-  z-index: 60;
-  background: rgba(255,255,255,.88);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  transition: background-color .2s ease, box-shadow .2s ease, border-color .2s ease, backdrop-filter .2s ease;
+  z-index: 100;
+  transition: background-color .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .site-header.scrolled{
   background: rgba(255,255,255,.95);
@@ -81,8 +78,9 @@
   </style>
 </head>
 <body class="font-sans text-[color:var(--ink)] bg-[color:var(--paper)]">
-  <header class="site-header sticky top-0 z-60 bg-white/80 backdrop-blur border-b" style="border-color:var(--rule)">
-   <div class="header-wrap mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+  <header class="site-header sticky top-0 z-[100] border-b" style="border-color:var(--rule)">
+    <div class="header-chrome bg-white/80 backdrop-blur">
+      <div class="header-wrap mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
       <a class="font-display text-xl tracking-tight hover-underline" href="/">Matias&nbsp;Laborde</a>
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
@@ -95,6 +93,7 @@
       <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 border" style="border-color:var(--rule)" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
+      </div>
     </div>
   </header>
   <div id="scrim" class="scrim"></div>
