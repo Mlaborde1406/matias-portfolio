@@ -15,10 +15,10 @@
     :root{ --ink:#0f0f10; --paper:#ffffff; --muted:#8a8a8f; --rule:#e7e7ea; }
     html, body { overflow-x: hidden; }
     /* Mobile drawer */
-    .mobile-nav{ position:fixed; top:0; right:0; bottom:0; width:18rem; max-width:85vw; background:#fff; border-left:1px solid var(--rule); transform:translateX(100%); transition:transform .25s ease; z-index:60; padding:1.25rem; }
+    .mobile-nav{ position:fixed; top:0; right:0; bottom:0; width:18rem; max-width:85vw; background:#fff; border-left:1px solid var(--rule); transform:translateX(100%); transition:transform .25s ease; z-index:70; padding:1.25rem; }
     .mobile-nav.open{ transform:translateX(0); }
     .mobile-nav a{ display:block; padding:.875rem 0; font-weight:500; }
-    .scrim{ position:fixed; inset:0; background:rgba(0,0,0,.35); backdrop-filter:saturate(120%) blur(2px); opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:50; }
+    .scrim{ position:fixed; inset:0; background:rgba(0,0,0,.35); backdrop-filter:saturate(120%) blur(2px); opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:65; }
     .scrim.show{ opacity:1; pointer-events:auto; }
     .font-display{ font-family:"Fraunces",ui-serif,Georgia,serif; font-variation-settings:"opsz" 72; }
     .font-sans{ font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
@@ -57,12 +57,13 @@
     @media (min-width:768px){ .carousel-item{ flex-basis:40%; } }
 
 .site-header{
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  transition: background-color .2s ease, box-shadow .2s ease, border-color .2s ease;
+  z-index: 60;
+  background: rgba(255,255,255,.88);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition: background-color .2s ease, box-shadow .2s ease, border-color .2s ease, backdrop-filter .2s ease;
 }
 .site-header.scrolled{
   background: rgba(255,255,255,.95);
@@ -80,9 +81,8 @@
   </style>
 </head>
 <body class="font-sans text-[color:var(--ink)] bg-[color:var(--paper)]">
-  <header class="site-header sticky top-0 z-[100] border-b" style="border-color:var(--rule)">
-    <div class="header-chrome bg-white/80 backdrop-blur">
-      <div class="header-wrap mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+  <header class="site-header sticky top-0 z-60 bg-white/80 backdrop-blur border-b" style="border-color:var(--rule)">
+   <div class="header-wrap mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
       <a class="font-display text-xl tracking-tight hover-underline" href="/">Matias&nbsp;Laborde</a>
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
@@ -95,10 +95,8 @@
       <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 border" style="border-color:var(--rule)" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
-      </div>
     </div>
   </header>
-  <div id="header-spacer" aria-hidden="true"></div>
   <div id="scrim" class="scrim"></div>
   <aside id="mobileNav" class="mobile-nav" role="dialog" aria-modal="true" aria-label="Site navigation">
     <div class="flex items-center justify-between mb-4">
@@ -295,31 +293,20 @@
     // Header shrink-on-scroll
 (function(){
   const header = document.querySelector('.site-header');
-  const spacer = document.getElementById('header-spacer');
-  if(!header || !spacer) return;
+  if(!header) return;
   const THRESHOLD = 60;
   let ticking = false;
-
-  function setSpacer(){ spacer.style.height = header.offsetHeight + 'px'; }
-
   function onScroll(){
     if(!ticking){
       requestAnimationFrame(()=>{
-        const past = window.scrollY > THRESHOLD;
-        const was = header.classList.contains('scrolled');
-        header.classList.toggle('scrolled', past);
-        if(past !== was) setSpacer();
+        header.classList.toggle('scrolled', window.scrollY > THRESHOLD);
         ticking = false;
       });
       ticking = true;
     }
   }
-
-  // Initialize
-  setSpacer();
-  onScroll();
+  onScroll(); // run once on load
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', setSpacer);
 })();
   </script>
   <script src="/public/scripts/animations.js"></script>
