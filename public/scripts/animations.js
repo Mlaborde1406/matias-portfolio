@@ -76,7 +76,7 @@
   // ---- Intro animation (on load, staggered) --------------------------------
 
   function runIntro() {
-    const nodes = Array.from(document.querySelectorAll('[data-intro]'));
+    const nodes = Array.from(document.querySelectorAll('[data-intro]')).filter(el => !el.closest('.site-header'));
     if (!nodes.length) return;
 
     if (prefersReduced) {
@@ -112,7 +112,7 @@
   // ---- Scroll reveal (IntersectionObserver) --------------------------------
 
   function setupReveals() {
-    const targets = Array.from(document.querySelectorAll('[data-reveal]'));
+    const targets = Array.from(document.querySelectorAll('[data-reveal]')).filter(el => !el.closest('.site-header'));
     if (!targets.length) return;
 
     if (prefersReduced) {
