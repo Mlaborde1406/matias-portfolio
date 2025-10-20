@@ -160,7 +160,12 @@
   <!-- Stellaris card -->
   <article class="card flex flex-col" data-reveal data-reveal-from="up" data-reveal-delay="0">
     <a href="/stellaris/" class="block">
-      <img src="/public/stellaris/cover.png" alt="Stellaris UI montage" class="w-full aspect-[16/10] object-cover" loading="lazy" />
+      <img src="/public/stellaris/cover.png"
+           alt="Stellaris UI montage"
+           class="w-full aspect-[16/10] object-cover"
+           loading="lazy"
+           decoding="async"
+           onerror="this.onerror=null; this.src='/public/stellaris/cover.png';" />
     </a>
     <div class="p-6 flex flex-col flex-grow">
       <div class="smallcaps text-xs text-[color:var(--muted)]">Case highlights</div>
